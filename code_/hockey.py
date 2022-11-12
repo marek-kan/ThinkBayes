@@ -13,6 +13,8 @@ import thinkbayes
 import thinkstats
 import thinkplot
 
+import os
+
 
 USE_SUMMARY_DATA = True
 
@@ -96,7 +98,7 @@ class Game(object):
         self.goals = self.pd1 + self.pd2 + self.pd3
 
 
-def ReadHockeyData(filename='hockey_data.csv'):
+def ReadHockeyData(filename='ThinkBayes/code_/hockey_data.csv'):
     """Read game scores from the data file.
 
     filename: string
@@ -186,8 +188,8 @@ def ProcessScoresTeamwise(pairs):
 
 
 def main():
-    #ReadHockeyData()
-    #return
+    ReadHockeyData()
+    return
 
     formats = ['pdf', 'eps']
 

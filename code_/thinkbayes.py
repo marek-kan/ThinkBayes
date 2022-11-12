@@ -1514,7 +1514,7 @@ def EvalGaussianPdf(x, mu, sigma):
     return scipy.stats.norm.pdf(x, mu, sigma)
 
 
-def MakeGaussianPmf(mu, sigma, num_sigmas, n=201):
+def MakeGaussianPmf(mu, sigma, num_sigmas, n=201, low=None):
     """Makes a PMF discrete approx to a Gaussian distribution.
     
     mu: float mean
@@ -1525,7 +1525,8 @@ def MakeGaussianPmf(mu, sigma, num_sigmas, n=201):
     returns: normalized Pmf
     """
     pmf = Pmf()
-    low = mu - num_sigmas * sigma
+    if low is None:
+        low = mu - num_sigmas * sigma
     high = mu + num_sigmas * sigma
 
     for x in numpy.linspace(low, high, n):
